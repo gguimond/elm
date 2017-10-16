@@ -1,7 +1,15 @@
 module Models exposing (..)
 
+import Players.Models exposing (Player)
+
 -- MODEL
 
 
 type alias Model =
-    String
+    { players : List Player
+    }
+
+initialModel : Model
+initialModel =
+    { players = [ Player "1" "Sam" 1 ]
+    }

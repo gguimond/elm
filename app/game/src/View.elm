@@ -1,8 +1,9 @@
 module View exposing (..)
 
 import Html exposing (Html, div, text, program)
-import Messages exposing (Msg)
+import Messages exposing (Msg(..))
 import Models exposing (Model)
+import Players.List
 
 -- VIEW
 
@@ -10,4 +11,8 @@ import Models exposing (Model)
 view : Model -> Html Msg
 view model =
     div []
-        [ text model ]
+        [ page model ]
+
+page : Model -> Html Msg
+page model =
+    Html.map PlayersMsg (Players.List.view model.players)
