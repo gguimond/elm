@@ -17,7 +17,7 @@ module.exports = {
   plugins: [
       new ClosureCompilerPlugin({
         compiler: {
-          compilation_level: 'ADVANCED'
+          //compilation_level: 'ADVANCED'
         },
         jsCompiler : true,
       }),
