@@ -16,5 +16,9 @@
     "webpack": "^1.15.0",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^1.16.5"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^1.0.1",
+    "webpack-closure-compiler": "^2.1.5"
   }
 }

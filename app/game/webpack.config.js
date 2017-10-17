@@ -1,4 +1,6 @@
 var path = require("path");
+const ClosureCompilerPlugin = require('webpack-closure-compiler');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -12,14 +14,21 @@ module.exports = {
     filename: '[name].js',
   },
 
+  plugins: [
+      new ClosureCompilerPlugin({
+        compiler: {
+          compilation_level: 'ADVANCED'
+        },
+        jsCompiler : true,
+      }),
+      new ExtractTextPlugin("[name].css")
+  ],
+
   module: {
     loaders: [
       {
         test: /\.(css|scss)$/,
-        loaders: [
-          'style-loader',
-          'css-loader',
-        ]
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader")
       },
       {
         test:    /\.html$/,
